@@ -1,0 +1,101 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+data/
+data_archive/
+data-harvesting/out/*
+data-harvesting/out_batch/*
+data-harvesting/out_batch_cursor/*
+figures/*
+
+# Virtual environments
+venv/
+ENV/
+env/
+.env
+.venv/
+venv*/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Jupyter runtime/session files
+/current_session
+
+# Logs and local run artifacts
+/log/
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python packaging
+pip-wheel-metadata/
+share/python-wheels/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Environments
+env.bak/
+
+# Secrets and credentials (local)
+.aws/
+.aws/credentials
+.aws/config
+*.pem
+
+# Notebook output (optional) — uncomment if you want to ignore outputs
+# .nboutput
+
+# Local sqlite dbs
+*.db
+*.sqlite3
+
+# Backup files
+*~
+# vim swap
+.swp
+
+# macOS
+.DS_Store
+
+# End of file
+

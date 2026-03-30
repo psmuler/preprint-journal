@@ -1,0 +1,49 @@
+{
+    "arxiv": {
+        "id": "{id}",
+        "doi": "10.48550/arXiv.{id}", // preprint doi is mapped from arxiv id: doi.org/10.48550/arXiv.{id}
+        "categories": "{categories}",
+        "primary_category": "{categories[0]}", // first category of the preprint categories
+        "curated_doi": "{doi}", // curated doi can also be inferred from journal-ref but we ignored them.
+        "published_date": "{versions.filter(version=v1).created}",
+        "last_updated_date": "{versions.filter(version={last}).created}"
+    },
+    "arxiv_kaggle": {
+        "id": "{id}",
+        "doi": "10.48550/arXiv.{id}", // preprint doi is mapped from arxiv id: doi.org/10.48550/arXiv.{id}
+        "categories": "{categories}",
+        "primary_category": "{categories[0]}", // first category of the preprint categories
+        "curated_doi": "{doi}", // curated doi can also be inferred from journal-ref but we ignored them.
+        "published_date": "{versions.filter(version=v1).created}",
+        "last_updated_date": "{versions.filter(version={last}).created}"
+    },
+    "biorxiv": {
+        "id": null, // preprints from biorxiv/medrxiv do not have unique id other than doi. We numbered them based on doi and version so that each series of versions under the different doi can be grouped under single id.
+        "doi": "{doi}",
+        "categories": "{category}",
+        "primary_category": "{category}",
+        "curated_doi": "{published}",
+        "published_date": "{date}",
+        "last_updated_date": "{{group_by('doi').max('version').date}}",
+        "condition_exclude": [
+            "some preprint has multiple doi for the same curated doi and version. We included them and mapped to the same id with multiple versions. mapping is as",
+            "multiple versions does not have consistent id. We mapped those manually based on the following criteria: for each of higher version, edit distance of title is calculated against all lower versions, the one with smallest edit distance is mapped as the lower version of the higher version."
+        ]
+    },
+    "medrxiv": {
+        extend: "biorxiv",
+        "condition_exclude": [
+            "Most preprint has type = PUBLISHAHEADOFPRINT but from published source, preprints are published ahead of curation. we did not exclude those with type = PUBLISHAHEADOFPRINT",
+        ]
+    },
+    "osf": {
+        "id": "{id}",
+        "doi": "{['attributes']['preprint_doi']}",
+        "categories": "{['relationships']['provider']['data']['id']}",
+        "primary_category": "{['relationships']['provider']['data']['id']}",
+        "curated_doi": "{['attributes']['doi']}",
+        "curated_date": "{['attributes']['date_published']}",
+        "published_date": "{['attributes']['date_created']}",
+        "last_updated_date": "['attributes']['date_modified']",
+    },
+}
