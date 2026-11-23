@@ -1,5 +1,6 @@
 data_path = "/home/ec2-user/r2"
 openalex_path = "s3://openalex-bulk"
+root = "/disks/qnap4/shared/scopus-25/data/"
 
 # source does not work
 preprint_primary_location_ids = {
